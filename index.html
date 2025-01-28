@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Embed Iframe Example</title>
+    <style>
+        /* Global body settings with dark, immersive theme */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: #0d0d0d;
+            color: white;
+            position: relative;
+        }
+
+        /* Particle animation using pseudo elements */
+        .particle {
+            position: absolute;
+            background: rgba(0, 255, 255, 0.6);
+            border-radius: 50%;
+            width: 8px;
+            height: 8px;
+            animation: particle 3s infinite linear;
+        }
+
+        @keyframes particle {
+            0% {
+                top: 50%;
+                left: 50%;
+                opacity: 1;
+                transform: translate(-50%, -50%) scale(0.5);
+            }
+            100% {
+                top: calc(100vh * 0.2);
+                left: calc(100vw * 0.8);
+                opacity: 0;
+                transform: translate(-50%, -50%) scale(2);
+            }
+        }
+
+        /* Iframe container with 3D rotation and reflection */
+        .iframe-container {
+            width: 100%;
+            max-width: 900px;
+            margin: auto;
+            border-radius: 25px;
+            overflow: hidden;
+            background: linear-gradient(45deg, rgba(20, 20, 20, 1) 30%, rgba(0, 0, 0, 1) 100%);
+            box-shadow: 0 4px 30px rgba(0, 255, 255, 0.5);
+            transform-style: preserve-3d;
+            transition: transform 0.5s ease;
+            position: relative;
+        }
+
+        .iframe-container:hover {
+            transform: rotateY(15deg) rotateX(10deg);
+        }
+
+        iframe {
+            width: 100%;
+            height: 500px;
+            border: none;
+            border-radius: 15px;
+            transform-origin: center center;
+            transition: transform 0.3s ease;
+        }
+
+        iframe:hover {
+            transform: scale(1.05);
+        }
+        
+    </style>
+</head>
+<body>
+    <!-- Add a particle background effect -->
+    <div class="particle" style="animation-delay: 0s; top: 0; left: 0;"></div>
+    <div class="particle" style="animation-delay: 1s; top: 50%; left: 100vw;"></div>
+    <div class="particle" style="animation-delay: 2s; top: 80%; left: 30vw;"></div>
+
+    <div class="iframe-container">
+        <iframe src="https://terminal.hapilabs.one/guest-address-check/CRO/0x9ef3fc220867f6cf5655db3d950cda67a3a92f9f" title="Example Iframe"></iframe>
+    </div>
+</body>
+</html>
